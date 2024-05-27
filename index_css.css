@@ -1,0 +1,93 @@
+﻿body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #c9deff;
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#counter {
+    font-size: 48px;
+    margin-right: 10px;
+}
+
+#diamond-icon {
+    width: 50px;
+    height: 50px;
+}
+
+#click-circle {
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+    #click-circle:hover {
+        transform: scale(1.1);
+    }
+
+    #click-circle.active {
+        transform: scale(1.05);
+    }
+
+#level-display {
+    font-size: 20px;
+}
+
+
+#upgrade-price {
+    font-size: 20px;
+}
+
+#upgrade-button {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 100px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+progress {
+    -webkit-appearance: none;
+}
+
+::-webkit-progress-value {
+    background-color: orange;
+}
+
+#popup {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    transition: bottom 0.5s ease; /* Added transition property */
+}
+
+.popup-content {
+    padding: 20px;
+    overflow: hidden; /* Added overflow property to hide content outside the popup */
+}
