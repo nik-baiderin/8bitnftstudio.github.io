@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Clicker Webapp</title>
     <link rel="stylesheet" href="index_css.css">
-
 </head>
-<body>
+<body> 
     <div class="container">
+        <button id="menu-button">
+            <img src="images/menu.png" alt="Menu" style="width: 75px; height: 75px;">
+        </button>
+        <button id="skin-button">
+            <img src="images/shop.png" alt="Shop" style="width: 75px; height: 75px;">
+        </button>
         <button id="upgrade-button">
-            <img src="images/upgrade.png" alt="Upgrade" style="width: 250px; height: 100px;">
+            <img src="images/upgrade.png" alt="Upgrade" style="width: 200px; height: 80px;">
             <br />
             <span id="level-display"></span>
+            <br />
             <span id="upgrade-price"></span>
         </button>
         <br />
@@ -24,17 +30,40 @@
         </div>
         <img src="images/click.png" alt="Click Button" id="click-circle">
         <br />
-        <progress value="100" min="0" max="100"></progress>
+        <div id="bar-container">
+            <progress value="200" min="0" max="200"></progress>
+            <img src="images/energybar.png" alt="Energy" id="energy-bar">
+        </div>
         <br />
-        <div id="slider-value">100</div>
-        <button id="open-popup-button">Open Popup</button>
+        <div id="slider-value">200</div>
+        <button id="open-popup-button">
+            <img src="images/quiz.png" alt="Upgrade" style="width: 200px; height: 80px;">
+        </button>
 
-        <!-- Popup Content -->
         <div id="popup">
             <div class="popup-content">
                 <h2>Popup Window</h2>
                 <button id="add-points-button">Add 10 Points</button>
                 <button id="close-popup-button">Close Popup</button>
+            </div>
+        </div>
+
+
+        <div id="menu-popup">
+            <div class="menu-popup-content">
+                <h2>Menu Popup</h2>
+                <button id="close-menu-popup-button">Back</button>
+                <button id="menu-button-1">Withdraw</button>
+                <button id="menu-button-2">Exit</button>
+            </div>
+        </div>
+
+        <div id="skin-popup">
+            <div class="skin-popup-content">
+                <h2>Купить Скин</h2>
+                <button id="skin-button-1"><img src="images/click1.png" alt="Click Button" height="150" width="150"></button>
+                <button id="skin-button-2"><img src="images/click2.png" alt="Click Button" height="150" width="150"></button>
+                <button id="close-skin-popup-button">Закрыть меню</button>
             </div>
         </div>
     </div>
