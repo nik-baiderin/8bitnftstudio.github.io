@@ -9,18 +9,15 @@
 <body> 
     <div class="container">
         <button id="menu-button">
-            <img src="images/menu.png" alt="Menu" style="width: 75px; height: 75px;">
+            <img src="images/Menu.png" alt="Menu" style="width: 75px; height: 75px;">
         </button>
         <button id="skin-button">
-            <img src="images/shop.png" alt="Shop" style="width: 75px; height: 75px;">
+            <img src="images/shop.png" alt="Shop" style="width: 85px; height: 85px;">
         </button>
-        <button id="upgrade-button">
-            <img src="images/upgrade.png" alt="Upgrade" style="width: 200px; height: 80px;">
-            <br />
-            <span id="level-display"></span>
-            <br />
-            <span id="upgrade-price"></span>
+        <button id="upgrade-popup-button">
+            <img src="images/upgrade-menu.png" alt="Shop" style="width: 100px; height: 100px;">
         </button>
+        
         <br />
         <br />
 
@@ -40,30 +37,60 @@
             <img src="images/quiz.png" alt="Upgrade" style="width: 200px; height: 80px;">
         </button>
 
+        <!-- Квиз -->
         <div id="popup">
             <div class="popup-content">
-                <h2>Popup Window</h2>
-                <button id="add-points-button">Add 10 Points</button>
-                <button id="close-popup-button">Close Popup</button>
+                <!-- Здесь должен быть вопрос из файла--><h2>Popup Window</h2>
+                <!-- Здесь должен быть вариант ответа из файла, который будет прав или неправ--><button id="add-points-button">Add 10 Points</button>
+                <!-- Здесь должен быть вариант ответа из файла, который будет прав или неправ--><button id="close-popup-button">Close Popup</button>
             </div>
         </div>
 
-
+        <!-- Главное меню (Вывод, выход) -->
         <div id="menu-popup">
             <div class="menu-popup-content">
-                <h2>Menu Popup</h2>
-                <button id="close-menu-popup-button">Back</button>
-                <button id="menu-button-1">Withdraw</button>
-                <button id="menu-button-2">Exit</button>
+                <h2>Меню</h2>
+                <!-- Здесь должен быть баланс профиля, который работает с существующим файлом --><h3 id="balance"></h3>
+                <button id="close-menu-popup-button"><img src="images/back.png" alt="Click Button"></button>
+                <button id="menu-button-1"><img src="images/withdraw.png" alt="Click Button"></button>
+                <button id="menu-button-2"><img src="images/exit.png" alt="Click Button"></button>
             </div>
         </div>
 
+        <!-- Меню со скинами -->
         <div id="skin-popup">
             <div class="skin-popup-content">
                 <h2>Купить Скин</h2>
                 <button id="skin-button-1"><img src="images/click1.png" alt="Click Button" height="150" width="150"></button>
+                <span id="price-1">100</span>
                 <button id="skin-button-2"><img src="images/click2.png" alt="Click Button" height="150" width="150"></button>
-                <button id="close-skin-popup-button">Закрыть меню</button>
+                <span id="price-2">100</span>
+                <button id="skin-button-3"><img src="images/click3.png" alt="Click Button" height="150" width="150"></button>
+                <span id="price-3">100</span>
+                <button id="skin-button-4"><img src="images/click4.png" alt="Click Button" height="150" width="150"></button>
+                <span id="price-4">100</span>
+                <button id="close-skin-popup-button"><img src="images/close_skin.png" alt="Click Button"></button>
+            </div>
+        </div>
+        <div id="upgrade-popup">
+            <div class="upgrade-popup-content">
+                <h2>Апгрейды!</h2>
+                <button id="upgrade-button"><img src="images/autoclick.png" alt="Click Button" height="100" width="100"></button>
+                <br />
+                <span id="level-display"></span>
+                <br />
+                <span id="upgrade-price"></span>
+                <button id="upgrade-button-1"><img src="images/restore.png" alt="Click Button" height="100" width="100"></button>
+                <br />
+                <span id="restore-display"></span>
+                <br />
+                <span id="restore-price"></span>
+                <button id="upgrade-button-2"><img src="images/energyup.png" alt="Click Button" height="100" width="100"></button>
+                <br />
+                <span id="up-display"></span>
+                <br />
+                <span id="up-price"></span>
+                <button id="close-upgrade-popup-button"><img src="images/close_skin.png" alt="Click Button"></button>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
     let CPScheck = true;
 
     setInterval(function () {
-        if (CPS >= 6) {
+        if (CPS > 6) {
             CPS = 6;
             CPSCheck = true;
         }
@@ -50,26 +50,52 @@
     const progressBar = document.querySelector("progress");
     const sliderValueElement = document.getElementById("slider-value");
     const upgradeButton = document.getElementById("upgrade-button");
+    const upupgradeButton = document.getElementById("upgrade-button-2");
+    const restoreupgradeButton = document.getElementById("upgrade-button-1");
     const levelDisplay = document.getElementById("level-display");
     const upgradePriceDisplay = document.getElementById("upgrade-price");
     const popup = document.getElementById("popup");
     const closePopupButton = document.getElementById("close-popup-button");
     const openPopupButton = document.getElementById("open-popup-button");
+    let restorelevel = 0;
+    let uplevel = 0;
+    let restoreupgradePrice = 10;
+    let upupgradePrice = 10;
+
+    const UpDisplay = document.getElementById("up-display");
+    const UpPriceDisplay = document.getElementById("up-price");
+    const RestoreDisplay = document.getElementById("restore-display");
+    const RestorePriceDisplay = document.getElementById("restore-price");
 
     updateLevelDisplay();
     updateUpgradePrice();
+    updateRestoreDisplay();
+    updateRestorePrice();
+    updateUpDisplay();
+    updateUpPrice();
 
     const menuButton = document.getElementById("menu-button");
     const menuPopup = document.getElementById("menu-popup");
+    const menuWithdraw = document.getElementById("menu-button-1")
+    const menuExit = document.getElementById("menu-button-2")
     const closeMenuPopupButton = document.getElementById("close-menu-popup-button");
 
     menuButton.addEventListener("click", function () {
         toggleMenuPopup(true);
     });
+    // Выводит токены на баланс (Пока что только обнуляет счетчик)
+    menuWithdraw.addEventListener("click", function () { 
+        counterElement.textContent = 0;
+        counter = 0;
+    });
 
     closeMenuPopupButton.addEventListener("click", function () {
         toggleMenuPopup(false);
     });
+
+    menuExit.addEventListener("click", function () {
+        window.close()
+    })
 
     function toggleMenuPopup(show) {
         if (show) {
@@ -81,19 +107,69 @@
         }
     }
 
+
+
+    const upgradeMenuButton = document.getElementById("upgrade-popup-button");
+    const upgradePopup = document.getElementById("upgrade-popup");
+    const closeUpgradePopupButton = document.getElementById("close-upgrade-popup-button");
+
+    upgradeMenuButton.addEventListener("click", function () {
+        toggleUpgradePopup(true);
+    });
+
+    closeUpgradePopupButton.addEventListener("click", function () {
+        toggleUpgradePopup(false);
+    });
+
+    function toggleUpgradePopup(show) {
+        if (show) {
+            upgradePopup.style.bottom = "0";
+            document.body.classList.add("upgrade-popup-active");
+        } else {
+            upgradePopup.style.bottom = "-100%";
+            document.body.classList.remove("upgrade-popup-active");
+        }
+    }
+
+
+
+
     const skinButton = document.getElementById("skin-button");
     const skinPopup = document.getElementById("skin-popup");
     const closeSkinPopupButton = document.getElementById("close-skin-popup-button");
-    const skinButton1 = document.getElementById("skin-button-1");
-    const skinButton2 = document.getElementById("skin-button-2");
 
-    skinButton1.addEventListener("click", function () {
-        clickCircle.src = "images/click1.png";
+
+    document.getElementById("skin-button-1").addEventListener("click", function () {
+        handlePurchase(1, "images/click1.png");
     });
 
-    skinButton2.addEventListener("click", function () {
-        clickCircle.src = "images/click2.png";
+    document.getElementById("skin-button-2").addEventListener("click", function () {
+        handlePurchase(2, "images/click2.png");
     });
+
+    document.getElementById("skin-button-3").addEventListener("click", function () {
+        handlePurchase(3, "images/click3.png");
+    });
+
+    document.getElementById("skin-button-4").addEventListener("click", function () {
+        handlePurchase(4, "images/click4.png");
+    });
+
+    function handlePurchase(buttonId, imageUrl) {
+        
+        const priceSpan = document.getElementById(`price-${buttonId}`);
+        if (priceSpan.textContent === "100") {
+            if (counter >= 100) {
+                priceSpan.textContent = "Куплено!";
+                counter -= 100;
+                counterElement.textContent = counter;
+                clickCircle.src = imageUrl;
+            }
+        } else {
+            clickCircle.src = imageUrl;
+        }
+        
+    }
 
     skinButton.addEventListener("click", function () {
         toggleSkinPopup(true);
@@ -168,9 +244,11 @@
 
     });
 
+    let currentRestore = 1;
+
     setInterval(function () {
-        if (progressBar.value < 200) {
-            progressBar.value++;
+        if (progressBar.value < progressBar.max) {
+            progressBar.value += currentRestore;
             sliderValueElement.textContent = progressBar.value;
         }
     }, 1000);
@@ -191,6 +269,39 @@
         }
     });
 
+
+    upupgradeButton.addEventListener("click", function () {
+        if (counter >= upupgradePrice && level < 5) {
+            counter -= upupgradePrice;
+            progressBar.max += 50;
+            uplevel++;
+            upupgradePrice += 10;
+            updateUpDisplay();
+            updateUpPrice();
+            counterElement.textContent = counter;
+            if (level === 5) {
+                upupgradeButton.disabled = true;
+            }
+        }
+    });
+
+    restoreupgradeButton.addEventListener("click", function () {
+        if (counter >= restoreupgradePrice && level < 5) {
+            counter -= restoreupgradePrice;
+            currentRestore += 1;
+            restorelevel++;
+            restoreupgradePrice += 10;
+            updateRestoreDisplay();
+            updateRestorePrice();
+            counterElement.textContent = counter;
+            if (level === 5) {
+                restoreupgradeButton.disabled = true;
+            }
+        }
+    });
+
+
+
     closePopupButton.addEventListener("click", function () {
         togglePopup(false);
     });
@@ -209,6 +320,26 @@
 
     function updateUpgradePrice() {
         upgradePriceDisplay.textContent = "Стоимость улучшения: " + upgradePrice;
+    }
+
+
+    //////////////////////////////
+
+    function updateRestoreDisplay() {
+        RestoreDisplay.textContent = "Уровень Восстановления Энергии: " + (restorelevel + 1);
+    }
+
+    function updateRestorePrice() {
+        RestorePriceDisplay.textContent = "Стоимость улучшения: " + restoreupgradePrice;
+    }
+    //////////////////////////////
+
+    function updateUpDisplay() {
+        UpDisplay.textContent = "Уровень Макс. Энергии: " + (uplevel + 1);
+    }
+
+    function updateUpPrice() {
+        UpPriceDisplay.textContent = "Стоимость улучшения: " + upupgradePrice;
     }
 
     function toggleButtonVisibility() {
