@@ -1,0 +1,386 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "totalcount": 1691,
+      "gamecount": 20
+    }
+  ],
+  "questions": [
+    {
+      "questionNumber": 1,
+      "questionText": "Что является столицей Германии?",
+      "answers": [
+        {
+          "text": "Берлин",
+          "isCorrect": true
+        },
+        {
+          "text": "Мюнхен",
+          "isCorrect": false
+        }
+      ],
+      "id": "13a0"
+    },
+    {
+      "questionNumber": 2,
+      "questionText": "Как называется самая высокая гора в мире?",
+      "answers": [
+        {
+          "text": "Килиманджаро",
+          "isCorrect": false
+        },
+        {
+          "text": "Эверест",
+          "isCorrect": true
+        }
+      ],
+      "id": "ee24"
+    },
+    {
+      "questionNumber": 3,
+      "questionText": "Какой их этих фруктов оранжевый?",
+      "answers": [
+        {
+          "text": "Апельсин",
+          "isCorrect": true
+        },
+        {
+          "text": "Банан",
+          "isCorrect": false
+        }
+      ],
+      "id": "cbfb"
+    },
+    {
+      "questionNumber": 4,
+      "questionText": "Какая планета самая близкая к Солнцу?",
+      "answers": [
+        {
+          "text": "Венера",
+          "isCorrect": false
+        },
+        {
+          "text": "Меркурий",
+          "isCorrect": true
+        }
+      ],
+      "id": "f8cb"
+    },
+    {
+      "questionNumber": 5,
+      "questionText": "Как называется столица Японии?",
+      "answers": [
+        {
+          "text": "Токио",
+          "isCorrect": true
+        },
+        {
+          "text": "Осака",
+          "isCorrect": false
+        }
+      ],
+      "id": "4e22"
+    },
+    {
+      "questionNumber": 6,
+      "questionText": "Где растет картошка?",
+      "answers": [
+        {
+          "text": "В огороде",
+          "isCorrect": true
+        },
+        {
+          "text": "На кустах",
+          "isCorrect": false
+        }
+      ],
+      "id": "c094"
+    },
+    {
+      "questionNumber": 7,
+      "questionText": "Что является самой большой страной по площади?",
+      "answers": [
+        {
+          "text": "Россия",
+          "isCorrect": true
+        },
+        {
+          "text": "Канада",
+          "isCorrect": false
+        }
+      ],
+      "id": "38cf"
+    },
+    {
+      "questionNumber": 8,
+      "questionText": "Какой океан самый большой?",
+      "answers": [
+        {
+          "text": "Тихий океан",
+          "isCorrect": true
+        },
+        {
+          "text": "Атлантический океан",
+          "isCorrect": false
+        }
+      ],
+      "id": "ea5e"
+    },
+    {
+      "questionNumber": 9,
+      "questionText": "Какая планета известна как Красная планета?",
+      "answers": [
+        {
+          "text": "Марс",
+          "isCorrect": true
+        },
+        {
+          "text": "Юпитер",
+          "isCorrect": false
+        }
+      ],
+      "id": "10f6"
+    },
+    {
+      "questionNumber": 10,
+      "questionText": "Что из этого является овощем?",
+      "answers": [
+        {
+          "text": "Лук",
+          "isCorrect": true
+        },
+        {
+          "text": "Арбуз",
+          "isCorrect": false
+        }
+      ],
+      "id": "749f"
+    },
+    {
+      "questionNumber": 11,
+      "questionText": "Какой химический элемент обозначается символом 'Fe'?",
+      "answers": [
+        {
+          "text": "Фтор",
+          "isCorrect": false
+        },
+        {
+          "text": "Железо",
+          "isCorrect": true
+        }
+      ],
+      "id": "6c6b"
+    },
+    {
+      "questionNumber": 12,
+      "questionText": "Какой из городов является столицей России?",
+      "answers": [
+        {
+          "text": "Москва",
+          "isCorrect": true
+        },
+        {
+          "text": "Санкт-Петербург",
+          "isCorrect": false
+        }
+      ],
+      "id": "9e2e"
+    },
+    {
+      "questionNumber": 13,
+      "questionText": "Как называется самый большой остров в мире?",
+      "answers": [
+        {
+          "text": "Гренландия",
+          "isCorrect": true
+        },
+        {
+          "text": "Новая Гвинея",
+          "isCorrect": false
+        }
+      ],
+      "id": "5585"
+    },
+    {
+      "questionNumber": 14,
+      "questionText": "Как называется столица Австралии?",
+      "answers": [
+        {
+          "text": "Сидней",
+          "isCorrect": false
+        },
+        {
+          "text": "Канберра",
+          "isCorrect": true
+        }
+      ],
+      "id": "c13b"
+    },
+    {
+      "questionNumber": 15,
+      "questionText": "Кто написал 'Преступление и наказание'?",
+      "answers": [
+        {
+          "text": "Федор Достоевский",
+          "isCorrect": true
+        },
+        {
+          "text": "Лев Толстой",
+          "isCorrect": false
+        }
+      ],
+      "id": "063c"
+    },
+    {
+      "questionNumber": 16,
+      "questionText": "Какая река самая длинная в мире?",
+      "answers": [
+        {
+          "text": "Амазонка",
+          "isCorrect": false
+        },
+        {
+          "text": "Нил",
+          "isCorrect": true
+        }
+      ],
+      "id": "5ad5"
+    },
+    {
+      "questionNumber": 17,
+      "questionText": "Как называется столица Канады?",
+      "answers": [
+        {
+          "text": "Оттава",
+          "isCorrect": true
+        },
+        {
+          "text": "Торонто",
+          "isCorrect": false
+        }
+      ],
+      "id": "15c4"
+    },
+    {
+      "questionNumber": 18,
+      "questionText": "Кто написал 'Война и мир'?",
+      "answers": [
+        {
+          "text": "Федор Достоевский",
+          "isCorrect": false
+        },
+        {
+          "text": "Лев Толстой",
+          "isCorrect": true
+        }
+      ],
+      "id": "5ff7"
+    },
+    {
+      "questionNumber": 19,
+      "questionText": "Как называется самый глубокий океан?",
+      "answers": [
+        {
+          "text": "Тихий океан",
+          "isCorrect": true
+        },
+        {
+          "text": "Индийский океан",
+          "isCorrect": false
+        }
+      ],
+      "id": "564e"
+    },
+    {
+      "questionNumber": 20,
+      "questionText": "Какая страна самая маленькая по площади?",
+      "answers": [
+        {
+          "text": "Монако",
+          "isCorrect": false
+        },
+        {
+          "text": "Ватикан",
+          "isCorrect": true
+        }
+      ],
+      "id": "1913"
+    },
+    {
+      "questionNumber": 21,
+      "questionText": "Сколько будет 15+6?",
+      "answers": [
+        {
+          "text": "21",
+          "isCorrect": true
+        },
+        {
+          "text": "19",
+          "isCorrect": false
+        }
+      ],
+      "id": "a2cf"
+    },
+    {
+      "questionNumber": 22,
+      "questionText": "Как называется столица Италии?",
+      "answers": [
+        {
+          "text": "Милан",
+          "isCorrect": false
+        },
+        {
+          "text": "Рим",
+          "isCorrect": true
+        }
+      ],
+      "id": "d0de"
+    },
+    {
+      "questionNumber": 23,
+      "questionText": "Какая планета самая большая в Солнечной системе?",
+      "answers": [
+        {
+          "text": "Юпитер",
+          "isCorrect": true
+        },
+        {
+          "text": "Сатурн",
+          "isCorrect": false
+        }
+      ],
+      "id": "e496"
+    },
+    {
+      "questionNumber": 24,
+      "questionText": "Кто первым полетел в космос?",
+      "answers": [
+        {
+          "text": "Нил Армстронг",
+          "isCorrect": false
+        },
+        {
+          "text": "Юрий Гагарин",
+          "isCorrect": true
+        }
+      ],
+      "id": "cad4"
+    },
+    {
+      "questionNumber": 25,
+      "questionText": "В какой стране едят палочками?",
+      "answers": [
+        {
+          "text": "Индия",
+          "isCorrect": false
+        },
+        {
+          "text": "Китай",
+          "isCorrect": true
+        }
+      ],
+      "id": "edeb"
+    }
+  ]
+}

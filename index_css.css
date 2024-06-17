@@ -1,4 +1,9 @@
-﻿@font-face {
+﻿* {
+    -webkit-tap-highlight-color: transparent; /* For Android < 5 */
+    tap-highlight-color: rgba(0, 0, 0, 0); /* For Android >= 5 */
+}
+
+@font-face {
     font-family: 'MalahitBold';
     src: url('fonts/Malahit_Bold.woff') format('woff');
     font-weight: normal;
@@ -23,6 +28,30 @@ body {
 
 }
 
+ #answer1, #answer2 {
+        background-color: lightblue;
+        border: none;
+        color: black; /* Font color set to black */
+        padding: 15px 30px; /* Adjust padding to control button size */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block; /* Ensures buttons are inline and can have fixed size */
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px; /* Adjust the border radius as needed */
+        font-family: 'MalahitBold', sans-serif; /* Custom font */
+        margin-bottom: 20px; /* Adds spacing between buttons */
+        font-size:20px;
+    }
+h4 {
+    position: fixed;
+    top: calc(50% - 300px);
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0; 
+    z-index: 1000; 
+    font-size: 20px;
+}
 
 h2 {
     font-size:35px;

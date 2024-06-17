@@ -1,0 +1,352 @@
+"questions": [
+  {
+    "questionNumber": 1,
+    "questionText": "Что является столицей Германии?",
+    "answers": [
+      {
+        "text": "Берлин",
+        "isCorrect": true
+      },
+      {
+        "text": "Мюнхен",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 2,
+    "questionText": "Как называется самая высокая гора в мире?",
+    "answers": [
+      {
+        "text": "Килиманджаро",
+        "isCorrect": false
+      },
+      {
+        "text": "Эверест",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 3,
+    "questionText": "Кто написал 'Гамлет'?",
+    "answers": [
+      {
+        "text": "Уильям Шекспир",
+        "isCorrect": true
+      },
+      {
+        "text": "Чарльз Диккенс",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 4,
+    "questionText": "Какая планета самая близкая к Солнцу?",
+    "answers": [
+      {
+        "text": "Венера",
+        "isCorrect": false
+      },
+      {
+        "text": "Меркурий",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 5,
+    "questionText": "Как называется столица Японии?",
+    "answers": [
+      {
+        "text": "Токио",
+        "isCorrect": true
+      },
+      {
+        "text": "Осака",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 6,
+    "questionText": "Кто написал '1984'?",
+    "answers": [
+      {
+        "text": "Джордж Оруэлл",
+        "isCorrect": true
+      },
+      {
+        "text": "Олдос Хаксли",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 7,
+    "questionText": "Что является самой большой страной по площади?",
+    "answers": [
+      {
+        "text": "Россия",
+        "isCorrect": true
+      },
+      {
+        "text": "Канада",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 8,
+    "questionText": "Какой океан самый большой?",
+    "answers": [
+      {
+        "text": "Тихий океан",
+        "isCorrect": true
+      },
+      {
+        "text": "Атлантический океан",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 9,
+    "questionText": "Какая планета известна как Красная планета?",
+    "answers": [
+      {
+        "text": "Марс",
+        "isCorrect": true
+      },
+      {
+        "text": "Юпитер",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 10,
+    "questionText": "Кто написал 'Мастер и Маргарита'?",
+    "answers": [
+      {
+        "text": "Михаил Булгаков",
+        "isCorrect": true
+      },
+      {
+        "text": "Александр Пушкин",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 11,
+    "questionText": "Какой химический элемент обозначается символом 'Fe'?",
+    "answers": [
+      {
+        "text": "Фтор",
+        "isCorrect": false
+      },
+      {
+        "text": "Железо",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 12,
+    "questionText": "Кто является автором теории относительности?",
+    "answers": [
+      {
+        "text": "Альберт Эйнштейн",
+        "isCorrect": true
+      },
+      {
+        "text": "Исаак Ньютон",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 13,
+    "questionText": "Как называется самый большой остров в мире?",
+    "answers": [
+      {
+        "text": "Гренландия",
+        "isCorrect": true
+      },
+      {
+        "text": "Новая Гвинея",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 14,
+    "questionText": "Как называется столица Австралии?",
+    "answers": [
+      {
+        "text": "Сидней",
+        "isCorrect": false
+      },
+      {
+        "text": "Канберра",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 15,
+    "questionText": "Кто написал 'Преступление и наказание'?",
+    "answers": [
+      {
+        "text": "Федор Достоевский",
+        "isCorrect": true
+      },
+      {
+        "text": "Лев Толстой",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 16,
+    "questionText": "Какая река самая длинная в мире?",
+    "answers": [
+      {
+        "text": "Амазонка",
+        "isCorrect": false
+      },
+      {
+        "text": "Нил",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 17,
+    "questionText": "Как называется столица Канады?",
+    "answers": [
+      {
+        "text": "Оттава",
+        "isCorrect": true
+      },
+      {
+        "text": "Торонто",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 18,
+    "questionText": "Кто написал 'Война и мир'?",
+    "answers": [
+      {
+        "text": "Федор Достоевский",
+        "isCorrect": false
+      },
+      {
+        "text": "Лев Толстой",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 19,
+    "questionText": "Как называется самый глубокий океан?",
+    "answers": [
+      {
+        "text": "Тихий океан",
+        "isCorrect": true
+      },
+      {
+        "text": "Индийский океан",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 20,
+    "questionText": "Какая страна самая маленькая по площади?",
+    "answers": [
+      {
+        "text": "Монако",
+        "isCorrect": false
+      },
+      {
+        "text": "Ватикан",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 21,
+    "questionText": "Кто написал 'Одиссея'?",
+    "answers": [
+      {
+        "text": "Гомер",
+        "isCorrect": true
+      },
+      {
+        "text": "Геродот",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 22,
+    "questionText": "Как называется столица Италии?",
+    "answers": [
+      {
+        "text": "Милан",
+        "isCorrect": false
+      },
+      {
+        "text": "Рим",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 23,
+    "questionText": "Какая планета самая большая в Солнечной системе?",
+    "answers": [
+      {
+        "text": "Юпитер",
+        "isCorrect": true
+      },
+      {
+        "text": "Сатурн",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "questionNumber": 24,
+    "questionText": "Кто написал 'Анна Каренина'?",
+    "answers": [
+      {
+        "text": "Иван Тургенев",
+        "isCorrect": false
+      },
+      {
+        "text": "Лев Толстой",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "questionNumber": 25,
+    "questionText": "Какая страна известна как 'земля восходящего солнца'?",
+    "answers": [
+      {
+        "text": "Китай",
+        "isCorrect": false
+      },
+      {
+        "text": "Япония",
+        "isCorrect": true
+      }
+    ]
+  }
+]

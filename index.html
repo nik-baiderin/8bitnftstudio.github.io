@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Clicker Webapp</title>
     <link rel="stylesheet" href="index_css.css">
 </head>
@@ -17,11 +17,9 @@
         <button id="upgrade-popup-button">
             <img src="images/upgrade-menu.png" alt="Shop" style="width: 100px; height: 100px;">
         </button>
-        
-        <br />
-        <br />
-
+        <h4 id="totalcount">0</h4>
         <div class="counter-container">
+
             <h1 id="counter">0</h1>
             <img src="images/diamond.png" alt="Diamond" id="diamond-icon">
         </div>
@@ -40,9 +38,9 @@
         <!-- Квиз -->
         <div id="popup">
             <div class="popup-content">
-                <!-- Здесь должен быть вопрос из файла--><h2>Popup Window</h2>
-                <!-- Здесь должен быть вариант ответа из файла, который будет прав или неправ--><button id="add-points-button">Add 10 Points</button>
-                <!-- Здесь должен быть вариант ответа из файла, который будет прав или неправ--><button id="close-popup-button">Close Popup</button>
+                <!-- Здесь должен быть вопрос из файла--><h2 id="questionBox">Popup Window</h2>
+                <button id="answer1"></button>
+                <button id="answer2"></button>
             </div>
         </div>
 
@@ -94,6 +92,6 @@
             </div>
         </div>
     </div>
-    <script src="index_js.js"></script>
+    <script src="index_js.js" defer></script>
 </body>
 </html>
