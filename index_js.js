@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿  document.addEventListener("DOMContentLoaded", function () {
+
     const numImages = 1;
     const container = document.querySelector(".container");
     let fallingImage;
@@ -12,14 +13,12 @@
 
     let clickStartTime = null;
     let lastClickTime = null;
-    let animationVisible = false;
+    let animationVisible = false; 
     let CPS = 0;
-
     let counter = 0;
     let countPerClick = 1;
     let energyDrainPerClick = 1;
     let level = 0;
-    let upgradePrice = 10;
     let popupCooldown = false;
     const counterElement = document.getElementById("counter");
     const clickCircle = document.getElementById("click-circle");
@@ -33,21 +32,22 @@
     const popup = document.getElementById("popup");
     let restorelevel = 0;
     let uplevel = 0;
+    let upgradePrice = 10;
     let restoreupgradePrice = 10;
     let upupgradePrice = 10;
-
     const UpDisplay = document.getElementById("up-display");
     const UpPriceDisplay = document.getElementById("up-price");
     const RestoreDisplay = document.getElementById("restore-display");
     const RestorePriceDisplay = document.getElementById("restore-price");
+    const closeOnboarding = document.getElementById("close-onboarding");
+    const onboarding = document.getElementById("onboarding");
+    let haveskin1 = false;
+    let haveskin2 = false;
+    let haveskin3 = false;
+    let haveskin4 = false;
 
-    updateLevelDisplay();
-    updateUpgradePrice();
-    updateRestoreDisplay();
-    updateRestorePrice();
-    updateUpDisplay();
-    updateUpPrice();
     loadCount();
+    setTimeout(checkUpgrade, 550);
 
     const menuButton = document.getElementById("menu-button");
     const menuPopup = document.getElementById("menu-popup");
@@ -57,6 +57,14 @@
     const openPopupButton = document.getElementById('open-popup-button');
     let initialcounter = 0;
     const balance = document.getElementById("totalcount");
+
+
+    window.onload = function () {
+        window.resizeTo(420, 900);
+    }
+
+
+      window.Telegram.WebApp.expand();
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     function getQuestions() {
@@ -78,12 +86,12 @@
                 const answers = question.answers;
                 questionElement.textContent = questionText;
 
-                // Display answers
+               
                 if (answers.length >= 2) {
                     answerButtons[0].textContent = answers[0].text;
                     answerButtons[1].textContent = answers[1].text;
 
-                    // Event listener for first answer button
+                    
                     function handler1() {
                         handleAnswerClick(answers[0]);
                         answerButtons[0].removeEventListener('click', handler1);
@@ -91,7 +99,7 @@
                     }
                     answerButtons[0].addEventListener('click', handler1);
 
-                    // Event listener for second answer button
+                    
                     function handler2() {
                         handleAnswerClick(answers[1]);
                         answerButtons[0].removeEventListener('click', handler1);
@@ -118,23 +126,47 @@
             togglePopup(false);
         }
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////// СЕКЦИЯ JSON
 
-        // Function to load initial count from db.json
-        function loadCount() {
-            fetch('http://localhost:3000/users/0')
-                .then(response => response.json())
-                .then(data => {
-                    initialcounter = data.gamecount;
-                    counter = data.gamecount;
-                    counterElement.textContent = counter;
-                    balance.textContent = "Общий баланс профиля: " + data.totalcount;
-                })
-                .catch(error => console.error('Error loading count:', error));
-        }
+    function loadCount() {
+        fetch('http://80.78.243.93:8000/api/user/370179203')
+            .then(response => response.json())
+            .then(data => {
+                if (!Array.isArray(data.users) || data.users.length === 0) {
+                    throw new Error('Invalid response structure or empty users array');
+                }
+
+                let userData = data.users[0]; 
+                initialcounter = userData.gamecount;
+                counter = userData.gamecount;
+                counterElement.textContent = counter;
+                balance.textContent = "Общий баланс профиля: " + userData.totalcount;
+                level = userData.clickup;
+                restorelevel = userData.recoveryup;
+                uplevel = userData.energyup;
+                haveskin1 = userData.skin1;
+                haveskin2 = userData.skin2;
+                haveskin3 = userData.skin3;
+                haveskin4 = userData.skin4;
+
+                if (haveskin1) {
+                    document.getElementById('price-1').textContent = "Куплено!";
+                }
+                if (haveskin2) {
+                    document.getElementById('price-2').textContent = "Куплено!";
+                }
+                if (haveskin3) {
+                    document.getElementById('price-3').textContent = "Куплено!";
+                }
+                if (haveskin4) {
+                    document.getElementById('price-4').textContent = "Куплено!";
+                }
+            })
+            .catch(error => console.error('Error loading count:', error));
+    }
 
         function reloadCount() {
-            fetch('http://localhost:3000/users/0')
+            fetch('http://80.78.243.93:8000/api/user/update')
                 .then(response => response.json())
                 .then(data => {
                     initialcounter = data.gamecount;
@@ -142,32 +174,49 @@
                     balance.textContent = "Общий баланс профиля: " + reloadbalance;
                 })
                 .catch(error => console.error('Error loading count:', error));
-        }
+     }
+
+     const currentDate = new Date().toLocaleDateString('en-CA');
+     const currentTime = new Date().toLocaleTimeString('en-GB', { hour12: false }); 
 
 
-        // Function to save count to db.json
-        function saveCount() {
-            fetch('http://localhost:3000/users/0', {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ gamecount: counter })
+    function saveCount() {
+        fetch('http://80.78.243.93:8000/api/user/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                users: [{
+                    id: "370179203",
+                    pricing: "free",
+                    totalcount: initialcounter,
+                    gamecount: counter,
+                    clickup: level,
+                    recoveryup: restorelevel,
+                    energyup: uplevel,
+                    skin1: haveskin1,
+                    skin2: haveskin2,
+                    skin3: haveskin3,
+                    skin4: haveskin4,
+                    date: currentDate,
+                    time: currentTime
+
+                }]
             })
-                .then(response => response.json())
-                .then(data => console.log('Count saved successfully:', data))
-                .catch(error => console.error('Error saving count:', error));
-        }
+        })
+            .then(response => response.json())
+            .then(data => console.log('Count saved successfully:', data))
+            .catch(error => console.error('Error saving count:', error));
+    }
+
 
         function withdrawCount(counter) {
-            // Fetch the current user data
-            fetch('http://localhost:3000/users/0')
+            fetch('http://80.78.243.93:8000/api/user/update')
                 .then(response => response.json())
                 .then(userData => {
-                    // Calculate new totalcount
                     const newTotalCount = userData.totalcount + counter;
-                    // Update totalcount with the new value
-                    return fetch('http://localhost:3000/users/0', {
+                    return fetch('http://80.78.243.93:8000/api/user/update', {
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json'
@@ -180,12 +229,35 @@
                 .catch(error => console.error('Error updating total count:', error));
 
         }
+    
+    function checkUpgrade() {
+        for (let p = 0; p < level; p++) {
+            upgradePrice = ((1 + (p * p)) * 10) * (p*2+1);
+            countPerClick++;
+            energyDrainPerClick++;
+        }
+        for (let n = 0; n < restorelevel; n++) {
+            restoreupgradePrice = ((1 + (n*n)) * 10) * (n*2+1);
+            currentRestore += 1;
+            
+        }
+        for (let m = 0; m < uplevel; m++) {
+            upupgradePrice = ((1 + (m*m)) * 10) * (m*2+1);
+            progressBar.max += 50;
+        }
+        progressBar.value = progressBar.max;
+        sliderValueElement.textContent = progressBar.value;
+        updateLevelDisplay();
+        updateUpgradePrice();
+        updateRestoreDisplay();
+        updateRestorePrice();
+        updateUpDisplay();
+        updateUpPrice();
+    }
 
-        // Save count when the page is closed or refreshed
         window.addEventListener('beforeunload', () => {
             saveCount();
         });
-
     
         //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -199,7 +271,6 @@
 
         setInterval(function () {
             saveCount(0);
-
         }, 10000);
 
         setInterval(function () {
@@ -233,7 +304,6 @@
             toggleMenuPopup(true);
         });
 
-        // Выводит токены на баланс
         menuWithdraw.addEventListener("click", function () {
             counterElement.textContent = 0;
             withdrawCount(counter);
@@ -260,8 +330,6 @@
             }
         }
 
-
-
         const upgradeMenuButton = document.getElementById("upgrade-popup-button");
         const upgradePopup = document.getElementById("upgrade-popup");
         const closeUpgradePopupButton = document.getElementById("close-upgrade-popup-button");
@@ -284,9 +352,6 @@
             }
         }
 
-
-
-
         const skinButton = document.getElementById("skin-button");
         const skinPopup = document.getElementById("skin-popup");
         const closeSkinPopupButton = document.getElementById("close-skin-popup-button");
@@ -308,21 +373,39 @@
             handlePurchase(4, "images/click4.png");
         });
 
-        function handlePurchase(buttonId, imageUrl) {
+    function handlePurchase(buttonId, imageUrl) {
 
-            const priceSpan = document.getElementById(`price-${buttonId}`);
-            if (priceSpan.textContent === "100") {
-                if (counter >= 100) {
-                    priceSpan.textContent = "Куплено!";
-                    counter -= 100;
-                    counterElement.textContent = counter;
-                    clickCircle.src = imageUrl;
-                }
-            } else {
+        const priceSpan = document.getElementById(`price-${buttonId}`);
+        if (priceSpan.textContent === "100") {
+            if (counter >= 100) {
+                priceSpan.textContent = "Куплено!";
+                counter -= 100;
+                counterElement.textContent = counter;
                 clickCircle.src = imageUrl;
-            }
+                debugger
+                switch (buttonId) {
+                    case 1:
+                        haveskin1 = true;
+                        break;
+                    case 2:
+                        haveskin2 = true;
+                        break;
+                    case 3:
+                        haveskin3 = true;
+                        break;
+                    case 4:
+                        haveskin4 = true;
+                        break;
+                    default:
+                        break;
+                }
 
+            }
+        } else {
+            clickCircle.src = imageUrl;
         }
+    }
+
 
         skinButton.addEventListener("click", function () {
             toggleSkinPopup(true);
@@ -401,7 +484,12 @@
                 progressBar.value += currentRestore;
                 sliderValueElement.textContent = progressBar.value;
             }
-        }, 1000);
+        }, 6000);
+
+    closeOnboarding.addEventListener("click", () => {
+        onboarding.style.bottom = "-100%";
+        onboarding.style.top = "-100%";
+    });
 
         upgradeButton.addEventListener("click", function () {
             if (counter >= upgradePrice && level < 5) {
@@ -409,7 +497,7 @@
                 countPerClick++;
                 energyDrainPerClick++;
                 level++;
-                upgradePrice += 10;
+                upgradePrice = ((1 + ((level - 1) * (level - 1))) * 10) * (1+ level*2);
                 updateLevelDisplay();
                 updateUpgradePrice();
                 counterElement.textContent = counter;
@@ -419,32 +507,31 @@
             }
         });
 
-
         upupgradeButton.addEventListener("click", function () {
-            if (counter >= upupgradePrice && level < 5) {
+            if (counter >= upupgradePrice && uplevel < 5) {
                 counter -= upupgradePrice;
                 progressBar.max += 50;
                 uplevel++;
-                upupgradePrice += 10;
+                upupgradePrice = ((1 + ((uplevel - 1) * (uplevel - 1))) * 10) * (uplevel*2 +1);
                 updateUpDisplay();
                 updateUpPrice();
                 counterElement.textContent = counter;
-                if (level === 5) {
+                if (uplevel === 5) {
                     upupgradeButton.disabled = true;
                 }
             }
         });
 
         restoreupgradeButton.addEventListener("click", function () {
-            if (counter >= restoreupgradePrice && level < 5) {
+            if (counter >= restoreupgradePrice && restorelevel < 5) {
                 counter -= restoreupgradePrice;
                 currentRestore += 1;
                 restorelevel++;
-                restoreupgradePrice += 10;
+                restoreupgradePrice = ((1 + ((restorelevel - 1) * (restorelevel - 1))) * 10) * (restorelevel*2 +1);
                 updateRestoreDisplay();
                 updateRestorePrice();
                 counterElement.textContent = counter;
-                if (level === 5) {
+                if (restorelevel === 5) {
                     restoreupgradeButton.disabled = true;
                 }
             }
@@ -460,30 +547,48 @@
         }
 
         function updateLevelDisplay() {
-            levelDisplay.textContent = "Уровень клика: " + (level + 1);
+            levelDisplay.textContent = "Уровень клика: " + (level);
+            if (level == 5) {
+                levelDisplay.textContent = "Уровень клика: Макс. Уровень";
+            }
         }
 
         function updateUpgradePrice() {
             upgradePriceDisplay.textContent = "Стоимость улучшения: " + upgradePrice;
+            if (level == 5) {
+                upgradePriceDisplay.textContent = "Улучшение Недоступно";
+            }
         }
 
 
         //////////////////////////////
         function updateRestoreDisplay() {
-            RestoreDisplay.textContent = "Уровень Восстановления Энергии: " + (restorelevel + 1);
+            RestoreDisplay.textContent = "Уровень Восстановления: " + (restorelevel);
+            if (restorelevel == 5) {
+                RestoreDisplay.textContent = "Уровень Восстановления: Макс. Уровень";
+            }
         }
 
         function updateRestorePrice() {
             RestorePriceDisplay.textContent = "Стоимость улучшения: " + restoreupgradePrice;
+            if (restorelevel == 5) {
+                RestorePriceDisplay.textContent = "Улучшение Недоступно";
+            }
         }
         //////////////////////////////
 
         function updateUpDisplay() {
-            UpDisplay.textContent = "Уровень Макс. Энергии: " + (uplevel + 1);
+            UpDisplay.textContent = "Уровень Макс. Энергии: " + (uplevel);
+            if (uplevel == 5) {
+                UpDisplay.textContent = "Уровень Макс. Энергии: Макс. Уровень";
+            }
         }
 
         function updateUpPrice() {
             UpPriceDisplay.textContent = "Стоимость улучшения: " + upupgradePrice;
+            if (uplevel == 5) {
+                UpPriceDisplay.textContent = "Улучшение Недоступно";
+            }
         }
 
         function toggleButtonVisibility() {

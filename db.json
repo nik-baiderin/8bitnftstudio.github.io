@@ -2,8 +2,15 @@
   "users": [
     {
       "id": "0",
-      "totalcount": 1691,
-      "gamecount": 20
+      "totalcount": 3403,
+      "gamecount": 138,
+      "clickup": 2,
+      "recoveryup": 3,
+      "energyup": 0,
+      "skin1": false,
+      "skin2": false,
+      "skin3": true,
+      "skin4": false
     }
   ],
   "questions": [

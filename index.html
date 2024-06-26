@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Clicker Webapp</title>
+    <title>Кликер</title>
     <link rel="stylesheet" href="index_css.css">
 </head>
 <body> 
@@ -12,16 +12,18 @@
             <img src="images/Menu.png" alt="Menu" style="width: 75px; height: 75px;">
         </button>
         <button id="skin-button">
-            <img src="images/shop.png" alt="Shop" style="width: 85px; height: 85px;">
+            <img src="images/shop.png" alt="Shop" style="width: 75px; height: 75px;">
         </button>
         <button id="upgrade-popup-button">
             <img src="images/upgrade-menu.png" alt="Shop" style="width: 100px; height: 100px;">
         </button>
-        <h4 id="totalcount">0</h4>
+        
         <div class="counter-container">
-
-            <h1 id="counter">0</h1>
-            <img src="images/diamond.png" alt="Diamond" id="diamond-icon">
+            <h4 id="totalcount">0</h4>
+            <div class="counter-wrapper">
+                <h1 id="counter">0</h1>
+                <img src="images/diamond.png" alt="Diamond" id="diamond-icon">
+            </div>
         </div>
         <img src="images/click.png" alt="Click Button" id="click-circle">
         <br />
@@ -54,7 +56,6 @@
                 <button id="menu-button-2"><img src="images/exit.png" alt="Click Button"></button>
             </div>
         </div>
-
         <!-- Меню со скинами -->
         <div id="skin-popup">
             <div class="skin-popup-content">
@@ -70,6 +71,7 @@
                 <button id="close-skin-popup-button"><img src="images/close_skin.png" alt="Click Button"></button>
             </div>
         </div>
+        <!-- Меню с апгрейдами -->
         <div id="upgrade-popup">
             <div class="upgrade-popup-content">
                 <h2>Апгрейды!</h2>
@@ -91,7 +93,32 @@
                 <button id="close-upgrade-popup-button"><img src="images/close_skin.png" alt="Click Button"></button>
             </div>
         </div>
+        <!-- Онбординг -->
+        <div id="onboarding">
+            <div class="onboarding-content">
+                <h8>добро пожаловать в квизлик!</h8>
+                <br />
+                <div class="onboarding-row">
+                    <p>кликай и зарабатывай алмазики на свои будущие запросы!</p>
+                    <img src="images/Ins1.png" alt="Instruction 1" height="145" width="145">
+                </div>
+                <div class="onboarding-row reverse">
+                    <img src="images/Ins2.png" alt="Instruction 2" height="145" width="145">
+                    <p>улучшай клики и энергию!</p>
+                </div>
+                <div class="onboarding-row">
+                    <p>получай алмазики за правильные ответы!</p>
+                    <img src="images/Ins3.png" alt="Instruction 3" height="145" width="145">
+                </div>
+                <div class="onboarding-row reverse">
+                    <img src="images/Ins4.png" alt="Instruction 4" height="145" width="145">
+                    <p>придай своему квизлику яркий образ!</p>
+                </div>
+                <button id="close-onboarding"><img src="images/gogo.png" alt="Click Button"></button>
+            </div>
+        </div>
     </div>
     <script src="index_js.js" defer></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>

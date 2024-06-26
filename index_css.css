@@ -43,15 +43,6 @@ body {
         margin-bottom: 20px; /* Adds spacing between buttons */
         font-size:20px;
     }
-h4 {
-    position: fixed;
-    top: calc(50% - 300px);
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0; 
-    z-index: 1000; 
-    font-size: 20px;
-}
 
 h2 {
     font-size:35px;
@@ -85,22 +76,40 @@ h2 {
 }
 .counter-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 35px;
-}
-#counter {
-    font-size: 48px;
-    margin-right: 10px;
-    margin-top: 145px;
+    padding-top: 10px; 
 }
 
-#diamond-icon {
-    width: 50px;
-    height: 50px;
-    margin-top: 105px;
+
+h1 {
+    padding:0;
+    margin:0;
+    font-size: 36px; 
 }
+#diamond-icon {
+    margin-top:5px;
+    margin-left: 10px;
+    width:35px;
+    height:35px;
+}
+
+h4 {
+    margin-bottom: 15px; 
+    font-size: 20px;
+}
+
+.counter-wrapper {
+    display: flex; /* Create a nested flex container */
+}
+
+
+#counter {
+    font-size: 48px;
+}
+
 
 #click-circle {
     width: 300px;
@@ -290,14 +299,15 @@ div.clickEffect {
 
 #menu-button {
     position: fixed;
-    top: 5%; 
-    left: 0%; 
-    z-index: 1000000; 
+    top: 2%;
+    right: 1%;
+    z-index: 1000000;
     border: none;
     cursor: pointer;
-    padding: 0;
-    background-color: transparent; 
-    outline: none; 
+    padding: 20px; /* Adjust padding for button size */
+    background-color: transparent;
+    outline: none;
+    font-size: 18px; /* Adjust font size */
 }
 
 
@@ -317,28 +327,32 @@ div.clickEffect {
     padding: 20px;
 
 }
+
 #upgrade-popup-button {
     position: fixed;
-    top: 0%;
-    left: 38%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000000;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 20px; /* Adjust padding for button size */
     background-color: transparent;
     outline: none;
+    font-size: 18px; /* Adjust font size */
 }
 
 #skin-button {
     position: fixed;
-    top: 5%; 
-    left: 83%; 
+    top: 2%; 
+    left: 1%; 
     z-index: 1000000;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 20px; /* Adjust padding for button size */
     background-color: transparent; 
     outline: none; 
+    font-size: 18px; /* Adjust font size */
 }
 #skin-button-1,
 #skin-button-2,
@@ -382,6 +396,63 @@ span {
     z-index: 12;
 }
 
+#onboarding {
+    position: fixed;
+    top: 0; /* Stick to the top of the screen */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto; 
+    background-color: rgba(255, 255, 255, 0.99);
+    border-top: 1px solid #ccc;
+    z-index: 20000000;
+    box-sizing: border-box;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.onboarding-content {
+    padding:20px;
+    max-width: 90%; 
+}
+
+    .onboarding-content h8 {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+.onboarding-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 11px;
+}
+
+    .onboarding-row img {
+        margin-right: 20px;
+    }
+
+    .onboarding-row.reverse img {
+        order: 2;
+        margin-left: 20px;
+        margin-right: 0;
+    }
+
+    .onboarding-row.reverse p {
+        order: 1;
+    }
+
+#close-onboarding {
+    margin-top: 5px;
+    width: 65%;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+}
 
 .skin-popup-content {
     padding-bottom: 30px;
@@ -389,7 +460,6 @@ span {
 
 
     button img,
-    #diamond-icon,
     #click-circle,
     #open-popup-button img,
     #menu-button img,
@@ -434,18 +504,19 @@ span {
 
 @media (max-width: 600px) {
     #click-circle {
-        width: 50vw;
-        height: 50vw;
+        width: 90vw;
+        height: 90vw;
     }
 
     #upgrade-button img,
     #open-popup-button img {
-        width: 50vw;
+        width: 90vw;
         height: auto;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1024px) {
+
     #click-circle {
         width: 70vw;
         height: 70vw;
@@ -454,6 +525,51 @@ span {
     #upgrade-button img,
     #open-popup-button img {
         width: 70vw;
+        height: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+    #click-circle {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    #upgrade-button img,
+    #open-popup-button img {
+        width: 90vw;
+        height: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    #click-circle {
+        width: 70vw;
+        height: 70vw;
+    }
+
+    #upgrade-button img,
+    #open-popup-button img {
+        width: 70vw;
+        height: auto;
+    }
+}
+
+/* Additional media query for iPhone SE or similar sized screens */
+@media (max-width: 375px) {
+    #click-circle {
+        width: 45vw;
+        height: 45vw;
+    }
+
+    h1{
+        font-size:15px;
+    }
+
+    #upgrade-button img,
+    #open-popup-button img {
+        width: 45vw;
         height: auto;
     }
 }
