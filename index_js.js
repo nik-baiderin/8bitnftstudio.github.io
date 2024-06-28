@@ -75,7 +75,7 @@
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////// СЕКЦИЯ ВОПРОСОВ
       function getQuestions() {
-          fetch('http://80.78.243.93:8000/api/question')
+          fetch('https://gptkids.online/clicker-backend/api/question')
               .then(response => {
                   if (!response.ok) {
                       throw new Error('Network response was not ok');
