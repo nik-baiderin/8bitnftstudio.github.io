@@ -1,5 +1,4 @@
 ﻿  document.addEventListener("DOMContentLoaded", function () {
-
     const numImages = 1;
     const container = document.querySelector(".container");
     let fallingImage;
@@ -10,7 +9,7 @@
         document.getElementById('answer1'),
         document.getElementById('answer2')
     ];
-
+      let currentRestore = 1;
     let clickStartTime = null;
     let lastClickTime = null;
     let animationVisible = false; 
@@ -44,20 +43,28 @@
     let haveskin1 = false;
     let haveskin2 = false;
     let haveskin3 = false;
-    let haveskin4 = false;
+      let haveskin4 = false;
+      let loadenergy = 0;
+      let currentDate = new Date().toLocaleDateString('en-CA');
+      let currentTime = new Date().toLocaleTimeString('en-GB', { hour12: false });
+      let serverDate = new Date().toLocaleDateString('en-CA');
+      let serverTime = new Date().toLocaleTimeString('en-GB', { hour12: false });
+      const menuButton = document.getElementById("menu-button");
+      const menuPopup = document.getElementById("menu-popup");
+      const menuWithdraw = document.getElementById("menu-button-1")
+      const menuExit = document.getElementById("menu-button-2")
+      const closeMenuPopupButton = document.getElementById("close-menu-popup-button");
+      const openPopupButton = document.getElementById('open-popup-button');
+      let initialcounter = 0;
+      const balance = document.getElementById("totalcount");
+      let finalenergy = 0;
+      
+      loadCount();
+      setTimeout(checkUpgrade, 450);
+      setTimeout(checkEnergy, 550);
+    
 
-    loadCount();
-    setTimeout(checkUpgrade, 550);
-
-    const menuButton = document.getElementById("menu-button");
-    const menuPopup = document.getElementById("menu-popup");
-    const menuWithdraw = document.getElementById("menu-button-1")
-    const menuExit = document.getElementById("menu-button-2")
-    const closeMenuPopupButton = document.getElementById("close-menu-popup-button");
-    const openPopupButton = document.getElementById('open-popup-button');
-    let initialcounter = 0;
-    const balance = document.getElementById("totalcount");
-
+   
 
     window.onload = function () {
         window.resizeTo(420, 900);
@@ -66,55 +73,55 @@
 
       window.Telegram.WebApp.expand();
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////
-    function getQuestions() {
-        fetch('http://localhost:3000/questions')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(qData => {
-                if (!qData || qData.length === 0) {
-                    throw new Error('No questions found in the response');
-                }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////// СЕКЦИЯ ВОПРОСОВ
+      function getQuestions() {
+          fetch('http://80.78.243.93:8000/api/question')
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+              })
+              .then(qData => {
+                  const questions = qData.questions ? qData.questions : qData;
 
-                let randomQ = Math.floor(Math.random() * qData.length);
-                const question = qData[randomQ];
-                const questionText = question.questionText;
-                const answers = question.answers;
-                questionElement.textContent = questionText;
+                  if (!questions || questions.length === 0) {
+                      throw new Error('No questions found in the response');
+                  }
 
-               
-                if (answers.length >= 2) {
-                    answerButtons[0].textContent = answers[0].text;
-                    answerButtons[1].textContent = answers[1].text;
+                  let randomQ = Math.floor(Math.random() * questions.length);
+                  const question = questions[randomQ];
+                  const questionText = question.questionText;
+                  const answers = question.answers;
+                  questionElement.textContent = questionText;
 
-                    
-                    function handler1() {
-                        handleAnswerClick(answers[0]);
-                        answerButtons[0].removeEventListener('click', handler1);
-                        answerButtons[1].removeEventListener('click', handler2);
-                    }
-                    answerButtons[0].addEventListener('click', handler1);
+                  if (answers.length >= 2) {
+                      answerButtons[0].textContent = answers[0].text;
+                      answerButtons[1].textContent = answers[1].text;
 
-                    
-                    function handler2() {
-                        handleAnswerClick(answers[1]);
-                        answerButtons[0].removeEventListener('click', handler1);
-                        answerButtons[1].removeEventListener('click', handler2);
-                    }
-                    answerButtons[1].addEventListener('click', handler2);
+                      function handler1() {
+                          handleAnswerClick(answers[0]);
+                          answerButtons[0].removeEventListener('click', handler1);
+                          answerButtons[1].removeEventListener('click', handler2);
+                      }
+                      answerButtons[0].addEventListener('click', handler1);
 
-                } else {
-                    throw new Error('Not enough answers provided for the question');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching or processing questions:', error);
-            });
-    }
+                      function handler2() {
+                          handleAnswerClick(answers[1]);
+                          answerButtons[0].removeEventListener('click', handler1);
+                          answerButtons[1].removeEventListener('click', handler2);
+                      }
+                      answerButtons[1].addEventListener('click', handler2);
+
+                  } else {
+                      throw new Error('Not enough answers provided for the question');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error fetching or processing questions:', error);
+              });
+      }
+
 
     function handleAnswerClick(answer) {
         if (answer.isCorrect) {
@@ -129,7 +136,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////////////// СЕКЦИЯ JSON
 
     function loadCount() {
-        fetch('http://80.78.243.93:8000/api/user/370179203')
+        fetch('https://gptkids.online/clicker-backend/api/user/370179203')
             .then(response => response.json())
             .then(data => {
                 if (!Array.isArray(data.users) || data.users.length === 0) {
@@ -148,6 +155,12 @@
                 haveskin2 = userData.skin2;
                 haveskin3 = userData.skin3;
                 haveskin4 = userData.skin4;
+                currentDate = userData.date;
+                currentTime = userData.time;
+                serverData = userData.serverdate;
+                serverTime = userData.servertime;
+                loadenergy = userData.endenergy;
+                progressBar.value = loadenergy;
 
                 if (haveskin1) {
                     document.getElementById('price-1').textContent = "Куплено!";
@@ -165,7 +178,7 @@
             .catch(error => console.error('Error loading count:', error));
     }
 
-        function reloadCount() {
+      /*  function reloadCount() {
             fetch('http://80.78.243.93:8000/api/user/update')
                 .then(response => response.json())
                 .then(data => {
@@ -175,13 +188,33 @@
                 })
                 .catch(error => console.error('Error loading count:', error));
      }
+     */
+      function checkEnergy () {
+          
+          // Parse the times
+          const [currentHours, currentMinutes, currentSeconds] = currentTime.split(':').map(Number);
+          const [serverHours, serverMinutes, serverSeconds] = serverTime.split(':').map(Number);
 
-     const currentDate = new Date().toLocaleDateString('en-CA');
-     const currentTime = new Date().toLocaleTimeString('en-GB', { hour12: false }); 
+          // Convert times to seconds
+          const currentTotalSeconds = currentHours * 3600 + currentMinutes * 60 + currentSeconds;
+          const serverTotalSeconds = serverHours * 3600 + serverMinutes * 60 + serverSeconds;
+          // Check if dates are equal
+          if (serverDate == currentDate) {
+              const timeDifference = Math.abs(serverTotalSeconds - currentTotalSeconds);
+              const sixSecondIntervals = Math.floor(timeDifference / 6);
+              progressBar.value += currentRestore * sixSecondIntervals;
+              progressBar.value += finalenergy;
+              if (progressBar.value > progressBar.max) {
+                  progressBar.value = progressBar.max;
+              }
+              sliderValueElement.textContent = progressBar.value;
+          }
+      }
 
 
-    function saveCount() {
-        fetch('http://80.78.243.93:8000/api/user/update', {
+      function saveCount() {
+          finalenergy = progressBar.value;
+          fetch('https://gptkids.online/clicker-backend/api/user/update', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -199,37 +232,43 @@
                     skin2: haveskin2,
                     skin3: haveskin3,
                     skin4: haveskin4,
-                    date: currentDate,
-                    time: currentTime
+                    servertime: serverTime,
+                    serverdate: serverDate,
+                    endenergy : finalenergy
 
                 }]
             })
         })
             .then(response => response.json())
-            .then(data => console.log('Count saved successfully:', data))
+            .then(data => console.log('Count saved success fully:', data))
             .catch(error => console.error('Error saving count:', error));
     }
 
 
-        function withdrawCount(counter) {
-            fetch('http://80.78.243.93:8000/api/user/update')
-                .then(response => response.json())
-                .then(userData => {
-                    const newTotalCount = userData.totalcount + counter;
-                    return fetch('http://80.78.243.93:8000/api/user/update', {
-                        method: 'PATCH',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ totalcount: newTotalCount })
-                    });
-                })
-                .then(response => response.json())
-                .then(data => console.log('Total count updated successfully:', data))
-                .catch(error => console.error('Error updating total count:', error));
+      function withdrawCount(counter) {
+          const currentClick = counter;
+          fetch('https://gptkids.online/clicker-backend/api/tokenizer/update', {
+              method: "PATCH",
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ id: "370179203", totalcount: currentClick })
+          })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok ' + response.statusText);
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  console.log('Success:', data);
+              })
+              .catch((error) => {
+                  console.error('Error:', error);
+              });
+      }
+     
 
-        }
-    
     function checkUpgrade() {
         for (let p = 0; p < level; p++) {
             upgradePrice = ((1 + (p * p)) * 10) * (p*2+1);
@@ -245,7 +284,6 @@
             upupgradePrice = ((1 + (m*m)) * 10) * (m*2+1);
             progressBar.max += 50;
         }
-        progressBar.value = progressBar.max;
         sliderValueElement.textContent = progressBar.value;
         updateLevelDisplay();
         updateUpgradePrice();
@@ -255,11 +293,12 @@
         updateUpPrice();
     }
 
+      
         window.addEventListener('beforeunload', () => {
             saveCount();
         });
     
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////// ОСТАЛЬНЫЕ СКРИПТЫ
 
         setInterval(function () {
             if (CPS > 6) {
@@ -309,7 +348,7 @@
             withdrawCount(counter);
             counter = 0;
             saveCount();
-            setTimeout(reloadCount, 550);
+            setTimeout(loadCount, 550);
         });
 
         closeMenuPopupButton.addEventListener("click", function () {
@@ -477,7 +516,7 @@
 
         });
 
-        let currentRestore = 1;
+
 
         setInterval(function () {
             if (progressBar.value < progressBar.max) {
