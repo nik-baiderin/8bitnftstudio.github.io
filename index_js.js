@@ -165,12 +165,15 @@
                 if (haveskin1) {
                     document.getElementById('price-1').textContent = "Куплено!";
                 }
+
                 if (haveskin2) {
                     document.getElementById('price-2').textContent = "Куплено!";
                 }
+
                 if (haveskin3) {
                     document.getElementById('price-3').textContent = "Куплено!";
                 }
+
                 if (haveskin4) {
                     document.getElementById('price-4').textContent = "Куплено!";
                 }
