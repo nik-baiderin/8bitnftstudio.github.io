@@ -1,124 +1,297 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <title>Кликер</title>
-    <link rel="stylesheet" href="index_css.css">
-</head>
-<body> 
+    <link rel="stylesheet" href="index_css.css" />
+  </head>
+  <body>
     <div class="container">
-        <button id="menu-button">
-            <img src="images/Menu.png" alt="Menu" style="width: 75px; height: 75px;">
-        </button>
-        <button id="skin-button">
-            <img src="images/shop.png" alt="Shop" style="width: 75px; height: 75px;">
-        </button>
-        <button id="upgrade-popup-button">
-            <img src="images/upgrade-menu.png" alt="Shop" style="width: 100px; height: 100px;">
-        </button>
-        
-        <div class="counter-container">
-            <h4 id="totalcount">0</h4>
-            <div class="counter-wrapper">
-                <h1 id="counter">0</h1>
-                <img src="images/diamond.png" alt="Diamond" id="diamond-icon">
-            </div>
-        </div>
-        <img src="images/click.png" alt="Click Button" id="click-circle">
-        <br />
-        <div id="bar-container">
-            <progress value="200" min="0" max="200"></progress>
-            <img src="images/energybar.png" alt="Energy" id="energy-bar">
-        </div>
-        <br />
-        <div id="slider-value">200</div>
-        <button id="open-popup-button">
-            <img src="images/quiz.png" alt="Upgrade" style="width: 200px; height: 80px;">
-        </button>
+      <button id="menu-button">
+        <img
+          src="images/Menu.png"
+          alt="Menu"
+          style="width: 75px; height: 75px"
+        />
+      </button>
+      <button id="skin-button">
+        <img
+          src="images/shop.png"
+          alt="Shop"
+          style="width: 75px; height: 75px"
+        />
+      </button>
+      <button id="upgrade-popup-button">
+        <img
+          src="images/upgrade-menu.png"
+          alt="Shop"
+          style="width: 100px; height: 100px"
+        />
+      </button>
 
-        <!-- Квиз -->
-        <div id="popup">
-            <div class="popup-content">
-                <!-- Здесь должен быть вопрос из файла--><h2 id="questionBox">Popup Window</h2>
-                <button id="answer1"></button>
-                <button id="answer2"></button>
-            </div>
+      <div class="counter-container">
+        <h4 id="totalcount">0</h4>
+        <div class="counter-wrapper">
+          <h1 id="counter">0</h1>
+          <img src="images/diamond.png" alt="Diamond" id="diamond-icon" />
         </div>
+      </div>
+      <img src="images/click.png" alt="Click Button" id="click-circle" />
+      <br />
+      <div id="bar-container">
+        <progress value="200" min="0" max="200"></progress>
+        <img src="images/energybar.png" alt="Energy" id="energy-bar" />
+      </div>
+      <br />
+      <div id="slider-value">200</div>
+      <button id="open-popup-button">
+        <img
+          src="images/quiz.png"
+          alt="Upgrade"
+          style="width: 200px; height: 80px"
+        />
+      </button>
 
-        <!-- Главное меню (Вывод, выход) -->
-        <div id="menu-popup">
-            <div class="menu-popup-content">
-                <h2>Меню</h2>
-                <!-- Здесь должен быть баланс профиля, который работает с существующим файлом --><h3 id="balance"></h3>
-                <button id="close-menu-popup-button"><img src="images/back.png" alt="Click Button"></button>
-                <button id="menu-button-1"><img src="images/withdraw.png" alt="Click Button"></button>
-                <button id="menu-button-2"><img src="images/exit.png" alt="Click Button"></button>
-            </div>
+      <!-- Квиз -->
+      <div id="popup">
+        <div class="popup-content">
+          <!-- Здесь должен быть вопрос из файла-->
+          <h2 id="questionBox">Popup Window</h2>
+          <button id="answer1"></button>
+          <button id="answer2"></button>
         </div>
-        <!-- Меню со скинами -->
-        <div id="skin-popup">
-            <div class="skin-popup-content">
-                <h2>Купить Скин</h2>
-                <button id="skin-button-1"><img src="images/click1.png" alt="Click Button" height="150" width="150"></button>
-                <span id="price-1">100</span>
-                <button id="skin-button-2"><img src="images/click2.png" alt="Click Button" height="150" width="150"></button>
-                <span id="price-2">100</span>
-                <button id="skin-button-3"><img src="images/click3.png" alt="Click Button" height="150" width="150"></button>
-                <span id="price-3">100</span>
-                <button id="skin-button-4"><img src="images/click4.png" alt="Click Button" height="150" width="150"></button>
-                <span id="price-4">100</span>
-                <button id="close-skin-popup-button"><img src="images/close_skin.png" alt="Click Button"></button>
-            </div>
+      </div>
+
+      <!-- Главное меню (Вывод, выход) -->
+      <div id="menu-popup">
+        <div class="menu-popup-content">
+          <h2>Меню</h2>
+          <!-- Здесь должен быть баланс профиля, который работает с существующим файлом -->
+          <h3 id="balance"></h3>
+          <button id="close-menu-popup-button">
+            <img src="images/back.png" alt="Click Button" />
+          </button>
+          <button id="menu-button-1">
+            <img src="images/withdraw.png" alt="Click Button" />
+          </button>
+          <!--<button id="menu-button-2"><img src="images/exit.png" alt="Click Button"></button> -->
+          <button id="profile-button">
+            <img
+              src="images/profile.png"
+              alt="Menu"
+              style="width: 75px; height: 75px"
+            />
+          </button>
+          <button id="daily-button">
+            <img
+              src="images/daily.png"
+              alt="Shop"
+              style="width: 75px; height: 75px"
+            />
+          </button>
+          <button id="socials-button">
+            <img
+              src="images/socials.png"
+              alt="Shop"
+              style="width: 75px; height: 75px"
+            />
+          </button>
         </div>
-        <!-- Меню с апгрейдами -->
-        <div id="upgrade-popup">
-            <div class="upgrade-popup-content">
-                <h2>Апгрейды!</h2>
-                <button id="upgrade-button"><img src="images/autoclick.png" alt="Click Button" height="100" width="100"></button>
-                <br />
-                <span id="level-display"></span>
-                <br />
-                <span id="upgrade-price"></span>
-                <button id="upgrade-button-1"><img src="images/restore.png" alt="Click Button" height="100" width="100"></button>
-                <br />
-                <span id="restore-display"></span>
-                <br />
-                <span id="restore-price"></span>
-                <button id="upgrade-button-2"><img src="images/energyup.png" alt="Click Button" height="100" width="100"></button>
-                <br />
-                <span id="up-display"></span>
-                <br />
-                <span id="up-price"></span>
-                <button id="close-upgrade-popup-button"><img src="images/close_skin.png" alt="Click Button"></button>
-            </div>
+      </div>
+      <!-- Меню со скинами -->
+      <div id="skin-popup">
+        <div class="skin-popup-content">
+          <h2>Купить Скин</h2>
+          <button id="skin-button-1">
+            <img
+              src="images/click1.png"
+              alt="Click Button"
+              height="150"
+              width="150"
+            />
+          </button>
+          <span id="price-1">100</span>
+          <button id="skin-button-2">
+            <img
+              src="images/click2.png"
+              alt="Click Button"
+              height="150"
+              width="150"
+            />
+          </button>
+          <span id="price-2">100</span>
+          <button id="skin-button-3">
+            <img
+              src="images/click3.png"
+              alt="Click Button"
+              height="150"
+              width="150"
+            />
+          </button>
+          <span id="price-3">100</span>
+          <button id="skin-button-4">
+            <img
+              src="images/click4.png"
+              alt="Click Button"
+              height="150"
+              width="150"
+            />
+          </button>
+          <span id="price-4">100</span>
+          <button id="close-skin-popup-button">
+            <img src="images/close_skin.png" alt="Click Button" />
+          </button>
         </div>
-        <!-- Онбординг -->
-        <div id="onboarding">
-            <div class="onboarding-content">
-                <h8>добро пожаловать в квизлик!</h8>
-                <br />
-                <div class="onboarding-row">
-                    <p>кликай и зарабатывай алмазики на свои будущие запросы!</p>
-                    <img src="images/Ins1.png" alt="Instruction 1" height="145" width="145">
-                </div>
-                <div class="onboarding-row reverse">
-                    <img src="images/Ins2.png" alt="Instruction 2" height="145" width="145">
-                    <p>улучшай клики и энергию!</p>
-                </div>
-                <div class="onboarding-row">
-                    <p>получай алмазики за правильные ответы!</p>
-                    <img src="images/Ins3.png" alt="Instruction 3" height="145" width="145">
-                </div>
-                <div class="onboarding-row reverse">
-                    <img src="images/Ins4.png" alt="Instruction 4" height="145" width="145">
-                    <p>придай своему квизлику яркий образ!</p>
-                </div>
-                <button id="close-onboarding"><img src="images/gogo.png" alt="Click Button"></button>
-            </div>
+      </div>
+      <!-- Меню с апгрейдами -->
+      <div id="upgrade-popup">
+        <div class="upgrade-popup-content">
+          <h2>Апгрейды!</h2>
+          <button id="upgrade-button">
+            <img
+              src="images/autoclick.png"
+              alt="Click Button"
+              height="100"
+              width="100"
+            />
+          </button>
+          <br />
+          <span id="level-display"></span>
+          <br />
+          <span id="upgrade-price"></span>
+          <button id="upgrade-button-1">
+            <img
+              src="images/restore.png"
+              alt="Click Button"
+              height="100"
+              width="100"
+            />
+          </button>
+          <br />
+          <span id="restore-display"></span>
+          <br />
+          <span id="restore-price"></span>
+          <button id="upgrade-button-2">
+            <img
+              src="images/energyup.png"
+              alt="Click Button"
+              height="100"
+              width="100"
+            />
+          </button>
+          <br />
+          <span id="up-display"></span>
+          <br />
+          <span id="up-price"></span>
+          <button id="close-upgrade-popup-button">
+            <img src="images/close_skin.png" alt="Click Button" />
+          </button>
         </div>
+      </div>
+      <!-- Онбординг -->
+      <div id="onboarding">
+        <div class="onboarding-content">
+          <h8>добро пожаловать в квизлик!</h8>
+          <br />
+          <div class="onboarding-row">
+            <p>кликай и зарабатывай алмазики на свои будущие запросы!</p>
+            <img
+              src="images/Ins1.png"
+              alt="Instruction 1"
+              height="145"
+              width="145"
+            />
+          </div>
+          <div class="onboarding-row reverse">
+            <img
+              src="images/Ins2.png"
+              alt="Instruction 2"
+              height="145"
+              width="145"
+            />
+            <p>улучшай клики и энергию!</p>
+          </div>
+          <div class="onboarding-row">
+            <p>получай алмазики за правильные ответы!</p>
+            <img
+              src="images/Ins3.png"
+              alt="Instruction 3"
+              height="145"
+              width="145"
+            />
+          </div>
+          <div class="onboarding-row reverse">
+            <img
+              src="images/Ins4.png"
+              alt="Instruction 4"
+              height="145"
+              width="145"
+            />
+            <p>придай своему квизлику яркий образ!</p>
+          </div>
+          <button id="close-onboarding">
+            <img src="images/gogo.png" alt="Click Button" />
+          </button>
+        </div>
+      </div>
+
+      <!-- Профиль -->
+      <div id="profile">
+        <div class="menu-popup-content">
+          <h2>Меню</h2>
+          <!-- Здесь должен быть баланс профиля, который работает с существующим файлом -->
+          <h3 id="balance"></h3>
+          <button id="close-menu-popup-button">
+            <img src="images/back.png" alt="Click Button" />
+          </button>
+          <button id="menu-button-1">
+            <img src="images/withdraw.png" alt="Click Button" />
+          </button>
+          <button id="menu-button-2">
+            <img src="images/exit.png" alt="Click Button" />
+          </button>
+        </div>
+      </div>
+      <!-- Награды -->
+      <div id="daily">
+        <div class="menu-popup-content">
+          <h2>Меню</h2>
+          <!-- Здесь должен быть баланс профиля, который работает с существующим файлом -->
+          <h3 id="balance"></h3>
+          <button id="close-menu-popup-button">
+            <img src="images/back.png" alt="Click Button" />
+          </button>
+          <button id="menu-button-1">
+            <img src="images/withdraw.png" alt="Click Button" />
+          </button>
+          <button id="menu-button-2">
+            <img src="images/exit.png" alt="Click Button" />
+          </button>
+        </div>
+      </div>
+      <!-- Социум -->
+      <div id="socials">
+        <div class="menu-popup-content">
+          <h2>Меню</h2>
+          <!-- Здесь должен быть баланс профиля, который работает с существующим файлом -->
+          <h3 id="balance"></h3>
+          <button id="close-menu-popup-button">
+            <img src="images/back.png" alt="Click Button" />
+          </button>
+          <button id="menu-button-1">
+            <img src="images/withdraw.png" alt="Click Button" />
+          </button>
+          <button id="menu-button-2">
+            <img src="images/exit.png" alt="Click Button" />
+          </button>
+        </div>
+      </div>
     </div>
     <script src="index_js.js" defer></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-</body>
+  </body>
 </html>
