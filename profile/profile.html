@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../index_css.css" />
+    <link rel="stylesheet" href="./profile.css" />
+  </head>
+  <body>
+    <div class="profile">
+      <div class="profile_bg"></div>
+      <div class="profile_gradient"></div>
+      <div class="container">
+        <div class="profile_main">
+          <div class="profile_avatar"></div>
+          <span class="profile_name">Dmitry</span>
+          <span>Общий баланс</span>
+          <div class="balance profile_balance">
+            <span class="balance_score"></span>&nbsp;
+            <img
+              class="balance_icon"
+              src="../images/onboarding/diamond_icon.svg"
+              alt=""
+            />
+          </div>
+          <button class="btn btn-withdraw profile_withdraw_btn">
+            Вывести
+            <img class="btn-withdraw_icon" src="../images/lock_icon.svg" />
+          </button>
+        </div>
+        <div class="profile_play">
+          <button class="btn btn-primary profile_play_btn">Играть!</button>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer_menu">
+          <div class="footer_menu_item">
+            <img class="footer_menu_item_icon" src="../images/home_icon.svg" />
+            <div class="footer_menu_item_title">Профиль</div>
+          </div>
+          <div class="footer_menu_item">
+            <img class="footer_menu_item_icon" src="../images/tasks_icon.svg" />
+            <div class="footer_menu_item_title">Задания</div>
+          </div>
+          <div class="footer_menu_item">
+            <img
+              class="footer_menu_item_icon"
+              src="../images/friends_icon.svg"
+            />
+            <div class="footer_menu_item_title">Друзья</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./profile.js"></script>
+  </body>
+</html>

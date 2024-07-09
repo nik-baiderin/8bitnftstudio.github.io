@@ -68,18 +68,6 @@ body {
     height: 250px;
 }
 
-.balance {
-}
-
-.balance_score {
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-.balance_icon {
-    height: 40px;
-}
-
 .energybar {
     position: relative;
     background: #B4B1B1;
@@ -100,45 +88,6 @@ body {
     position: absolute;
     height: inherit;
     border-radius: inherit;
-}
-
-.btn {
-    padding: 0.4rem 1rem;
-    border-radius: 1em;
-    font-size: 1rem;
-    font-weight: 400;
-    border: 1px solid transparent;
-}
-
-.btn-primary {
-    background: #704EF4;
-    color: #fff;
-    border-color: #704EF4;
-}
-
-.btn-secondary {
-    background: #fff;
-    color: #4E4F53;
-    border-color: #704EF4;
-}
-
-.btn-orange {
-    background: #FE881C;
-    color: #fff;
-    text-transform: uppercase;
-    border-color: #FE881C;
-    font-size: 2rem;
-    padding: 0.6rem 5.4rem;
-    font-weight: 700;
-}
-
-.btn-answer {
-    background: #CCC6F0;
-    color: #23262F;
-    border-color: #CCC6F0;
-    font-size: 1.3rem;
-    font-weight: 700;
-    padding: 0.4rem 1.6rem;
 }
 
 .btn-footer {

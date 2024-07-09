@@ -1,0 +1,91 @@
+.profile {
+    padding: 0 1.2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.profile_gradient {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(45deg, #EEEEFF 51%, #F9F6FF 100%); */
+    background: linear-gradient(45deg, #A4A8FF 0%, #FFA4E0 51%, #A4A8FF 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+    backdrop-filter: blur(20px);
+    
+}
+
+.profile_bg {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/profile/bg2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+
+}
+
+.profile_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_avatar {
+    background: #E3E3E3;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.profile_play {
+    margin-top: 10rem;
+}
+
+.profile_play_btn {
+    padding: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    width: 80%;
+    border-radius: 2em;
+}
+
+.profile_name {
+    font-size: 1.375rem;
+    font-weight: 700;
+}
+
+.btn-withdraw {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #898989;
+    background: #E3E3E3;
+    padding: 0.4rem 4rem;
+    padding-right: 2rem;
+    position: relative;
+}
+
+.btn-withdraw_icon {
+    position: absolute;
+    left: 2rem;
+    top: 45%;
+    transform: translateY(-50%);
+}

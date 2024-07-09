@@ -60,19 +60,24 @@
   let initialcounter = 0;
   const balance = document.getElementById("totalcount");
   let finalenergy = 0;
+
+  let accessToken = "";
+
   Telegram.WebApp.ready();
 
   //const telegramID = Telegram.WebApp.initDataUnsafe.user.id;
-  let telegramID = 123123123;
-  // Check if the telegramID is available
+  // let telegramID = 370179203;
+  let telegramID = 466016637;
+
   if (!telegramID) {
     console.error("Telegram ID not available");
     return;
   }
 
-  loadCount();
-  setTimeout(checkUpgrade, 450);
-  setTimeout(checkEnergy, 550);
+  getToken();
+  setTimeout(loadCount, 800);
+  setTimeout(checkUpgrade, 1150);
+  setTimeout(checkEnergy, 1450);
 
   window.onload = function () {
     window.resizeTo(420, 900);
@@ -80,9 +85,43 @@
 
   window.Telegram.WebApp.expand();
 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////// ТОКЕН
+
+  function getToken() {
+    const formData = new URLSearchParams();
+    formData.append("username", "diana@best.com");
+    formData.append("password", "artemprivet");
+
+    fetch("http://80.78.243.93:8000/token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formData.toString(),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        accessToken = data.access_token; // Update the global accessToken
+        console.log("Token fetched successfully:", accessToken);
+      })
+      .catch((error) => {
+        console.error("Error fetching token:", error);
+      });
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////// СЕКЦИЯ ВОПРОСОВ
+
   function getQuestions() {
-    fetch("https://gptkids.online/clicker-backend/api/question")
+    fetch("https://gptkids.online/clicker-backend/api/question", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -141,7 +180,12 @@
   ////////////////////////////////////////////////////////////////////////////////////////////////////// СЕКЦИЯ JSON
 
   function loadCount() {
-    fetch(`https://gptkids.online/clicker-backend/api/user/${telegramID}`)
+    console.log(accessToken);
+    fetch(`https://gptkids.online/clicker-backend/api/user/${telegramID}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         if (!Array.isArray(data.users) || data.users.length === 0) {
@@ -184,20 +228,16 @@
   }
 
   function checkEnergy() {
-    // Parse the times
     const [currentHours, currentMinutes, currentSeconds] = currentTime
       .split(":")
       .map(Number);
     const [serverHours, serverMinutes, serverSeconds] = serverTime
       .split(":")
       .map(Number);
-
-    // Convert times to seconds
     const currentTotalSeconds =
       currentHours * 3600 + currentMinutes * 60 + currentSeconds;
     const serverTotalSeconds =
       serverHours * 3600 + serverMinutes * 60 + serverSeconds;
-    // Check if dates are equal
     if (serverDate == currentDate) {
       const timeDifference = Math.abs(serverTotalSeconds - currentTotalSeconds);
       const sixSecondIntervals = Math.floor(timeDifference / 6);
@@ -216,6 +256,7 @@
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({
         users: [
@@ -249,6 +290,7 @@
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({ id: telegramID, totalcount: currentClick }),
     })
