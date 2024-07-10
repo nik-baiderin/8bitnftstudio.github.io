@@ -1,4 +1,7 @@
-﻿* {
+﻿@import url("./fonts/Gilroy/stylesheet.css");
+
+
+* {
     -webkit-tap-highlight-color: transparent; /* For Android < 5 */
     tap-highlight-color: rgba(0, 0, 0, 0); /* For Android >= 5 */
 }
@@ -289,13 +292,13 @@ div.clickEffect {
 
 }
 
-#open-popup-button {
+/* #open-popup-button {
     border: none;
     cursor: pointer;
     padding: 0;
     background-color: transparent; 
     outline: none; 
-}
+} */
 
 #menu-button {
     position: fixed;
@@ -371,9 +374,9 @@ div.clickEffect {
 span {
     display: block;
     text-align: center;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-size: 25px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 #skin-popup {
@@ -686,7 +689,7 @@ body {
     justify-content: center;
     flex-direction: column;
     background: #fff;
-    font-family: "Poppins", sans-serif;
+    font-family: "Gilroy", sans-serif;
 }
 
 /*  */
@@ -694,6 +697,7 @@ body {
 /* BUTTON */
 
 .btn {
+    position: relative;
     padding: 0.4rem 1rem;
     border-radius: 1em;
     font-size: 1rem;
@@ -732,6 +736,30 @@ body {
     padding: 0.4rem 1.6rem;
 }
 
+.btn-upgrade {
+    color: #fff;
+    font-size: 1.375rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #FFA903 0%, #FFC700 100%);
+    position: relative;
+    padding: 0.6rem 4rem;
+    padding-right: 2rem;
+}
+
+.btn-upgrade_icon {
+    position: absolute;
+    left: 1.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-inventory_icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /*  */
 
 /* BALANCE */
@@ -750,11 +778,26 @@ body {
     height: 40px;
 }
 
+.energy {
+    display: flex;
+    align-items: center;
+}
+
+.energy_score {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.energy_icon {
+    height: 40px;
+}
+
+
 /* FOOTER */
 
 .footer {
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     background: #F3F3F3;
 }
@@ -783,3 +826,27 @@ body {
 }
 
 /*  */
+
+.energybar {
+    position: relative;
+    background: #EBEBEB;
+    height: 1.6rem;
+    border-radius: 1em;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #5F5F5F;
+}
+
+.energybar_value {
+    background: linear-gradient(to right, #FEA500 0%,#FFF0A1 100%);
+    /* background: #FE881C; */
+    width: 0%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: inherit;
+    border-radius: inherit;
+    border: 1px solid #5F5F5F;
+    transition: all 0.3s;
+}

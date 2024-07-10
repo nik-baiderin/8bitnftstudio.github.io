@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../index_css.css" />
+    <link rel="stylesheet" href="./game.css" />
+  </head>
+  <body>
+    <div class="game">
+      <a
+        class="d-none"
+        href="../onboarding/onboarding.html"
+        id="onboardingLink"
+      ></a>
+      <a class="d-none" href="../profile/profile.html" id="profileLink"></a>
+      <div class="game_bg"></div>
+      <div class="game_gradient"></div>
+      <div class="game_head">
+        <div class="container">
+          <div class="w-100 d-flex justify-content-between align-items-center">
+            <a
+              class="btn btn-back game_back_btn"
+              href="../profile/profile.html"
+            >
+              <img class="btn-back_icon" src="../images/back_icon.svg" />
+            </a>
+            <button class="btn btn-upgrade game_upgrade_btn">
+              Улучшить!
+              <img class="btn-upgrade_icon" src="../images/upgrade_icon.svg" />
+            </button>
+            <button class="btn btn-inventory game_inventory_btn">
+              <img
+                class="btn-inventory_icon"
+                src="../images/inventory_icon.svg"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="game_main">
+        <div class="container">
+          <div class="game_balance">
+            <span class="game_balance_desc">Текущий баланс</span>
+            <div class="balance">
+              <span class="balance_score" id="counter"></span>&nbsp;
+              <img
+                class="balance_icon"
+                src="../images/onboarding/diamond_icon.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="game_area">
+            <progress class="d-none" value="200" min="0" max="200"></progress>
+            <img
+              class="game_hero_icon"
+              id="click-circle"
+              src="../images/click.png"
+              alt=""
+            />
+            <div class="onboarding_energybar energybar">
+              <div class="energybar_value"></div>
+            </div>
+            <div class="energy mt-2 d-flex justify-content-center">
+              <span class="energy_score"></span>&nbsp;
+              <img class="energy_icon" src="../images/energy_icon.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="game_foot w-100">
+        <button class="btn btn-primary game_quiz_btn" id="open-popup-button">
+          Квиз
+        </button>
+      </div>
+      <div class="quiz">
+        <div class="container">
+          <img class="quiz_img" src="../images/hero_abstract.svg" />
+          <div class="quiz_title" id="questionBox">
+            Какой из этих элементов является газом при комнатной температуре?
+          </div>
+          <div class="quiz_answers" style="padding: 0 2.4rem">
+            <!-- <button class="btn btn-primary quiz_answer_btn w-100">
+              Кислород
+            </button>
+            <button class="btn btn-primary quiz_answer_btn w-100">
+              Железо
+            </button> -->
+          </div>
+          <div class="quiz_result">
+            <p>Правильный ответ!</p>
+            <div class="balance">
+              <span class="balance_score">+15</span>&nbsp;
+              <img
+                class="balance_icon"
+                src="../images/onboarding/diamond_icon.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- <div class="quiz_result_wrong">
+            <p>Не правильный ответ!</p>
+            <div class="balance">
+              <span class="balance_score">+15</span>&nbsp;
+              <img
+                class="balance_icon"
+                src="../images/onboarding/diamond_icon.svg"
+                alt=""
+              />
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer_menu">
+          <div class="footer_menu_item">
+            <img class="footer_menu_item_icon" src="../images/home_icon.svg" />
+            <div class="footer_menu_item_title">Профиль</div>
+          </div>
+          <div class="footer_menu_item">
+            <img class="footer_menu_item_icon" src="../images/tasks_icon.svg" />
+            <div class="footer_menu_item_title">Задания</div>
+          </div>
+          <div class="footer_menu_item">
+            <img
+              class="footer_menu_item_icon"
+              src="../images/friends_icon.svg"
+            />
+            <div class="footer_menu_item_title">Друзья</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>

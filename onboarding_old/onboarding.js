@@ -10,19 +10,11 @@ const swiper = new Swiper(".swiper", {
   navigation: {
     nextEl: ".onboarding_slider_next",
   },
-  spaceBetween: 30,
 });
 window.swiper = swiper;
 
-// document
-//   .querySelector(".onboarding_skip_btn")
-//   .addEventListener("click", (e) => {
-//     swiper.slideTo(4);
-//   });
-
 document
-  .querySelector(".onboarding_slider_play")
+  .querySelector(".onboarding_skip_btn")
   .addEventListener("click", (e) => {
-    e.preventDefault();
-    document.querySelector("#finishOnboarding").click();
+    swiper.slideTo(4);
   });

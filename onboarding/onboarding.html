@@ -29,84 +29,209 @@
   </head>
   <body>
     <div class="onboarding">
-      <div class="swiper onboarding_slider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide onboarding_slide">
-            <h2 class="onboarding_slide_title">
-              Играй и зарабатывай алмазики на свои будущие запросы!
-            </h2>
-            <div class="balance">
-              <span class="balance_score">76</span>&nbsp;
-              <img
-                class="balance_icon"
-                src="../images/onboarding/diamond_icon.svg"
-                alt=""
-              />
-            </div>
-            <div class="main_image position-relative">
-              <img
-                class="onboarding_hero_img"
-                src="../images/onboarding/hero.svg"
-                alt=""
-              />
-              <img
-                class="onboarding_click_img"
-                src="../images/onboarding/selection_icon.svg"
-                alt=""
-              />
-            </div>
-            <div class="onboarding_energybar energybar">
-              <div class="energybar_value"></div>
-            </div>
-          </div>
-          <div class="swiper-slide onboarding_slide">
-            <h2 class="onboarding_slide_title">
-              Улучшай клики <br />и энергию!
-            </h2>
-            <img
-              src="../images/onboarding/click_upgrade.png"
-              alt=""
-              class="onboarding_click_upgrade_img"
-            />
-          </div>
-          <div class="swiper-slide onboarding_slide">
-            <h2 class="onboarding_slide_title">
-              Получай алмазики за <br />правильные ответы!
-            </h2>
-            <img
-              src="../images/onboarding/questions_img.svg"
-              class="onboarding_questions_img"
-            />
-            <div class="question">
-              <button class="question_tooltip_btn btn btn-orange">Квиз</button>
-              <h4 class="question_title">
-                Как называется самый большой остров в мире?
-              </h4>
-              <div class="d-flex w-100 justify-content-around mt-4">
-                <button class="question_answer_btn btn btn-answer">
-                  Гренладния
-                </button>
-                <button class="question_answer_btn btn btn-answer">
-                  Новая Зеландия
+      <div class="container">
+        <div class="swiper onboarding_slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide onboarding_slide">
+              <div class="onboarding_slide_head">
+                <h2 class="onboarding_slide_title">
+                  Добро пожаловать<br />
+                  в Quizlik!
+                </h2>
+                <p class="onboarding_slide_subtitle">
+                  Играй, учись и <br />
+                  зарабатывай алмазики
+                </p>
+              </div>
+              <div class="onboarding_slide_foot">
+                <div class="onboarding_slide_desc">
+                  <img
+                    src="../images/hero1.svg"
+                    class="onboarding_slide_img_hero1"
+                  />
+                  <p>
+                    Quizlik — это увлекательная игра, которая поможет тебе
+                    учиться и развиваться, играя.
+                  </p>
+                  <p class="mt-2">
+                    Тапай по голове робота, отвечай на вопросы и зарабатывай
+                    алмазики!
+                  </p>
+                </div>
+                <button class="btn btn-primary onboarding_slider_next">
+                  Начать приключение
                 </button>
               </div>
             </div>
+            <div class="swiper-slide onboarding_slide">
+              <div class="onboarding_slide_head">
+                <h2 class="onboarding_slide_title">
+                  Тапай и <br />
+                  зарабатывай
+                </h2>
+                <p class="onboarding_slide_subtitle">
+                  Каждый тап приближает <br />
+                  тебя к сокровищам знаний
+                </p>
+              </div>
+              <div class="onboarding_slide_foot">
+                <div class="onboarding_slide_desc">
+                  <img
+                    src="../images/onboarding/game_process.png"
+                    class="onboarding_slide_img_gameprocess"
+                  />
+                  <p>
+                    Quizlik — это увлекательная игра, которая поможет тебе
+                    учиться и развиваться, играя.
+                  </p>
+                  <p class="mt-2">
+                    Тапай по голове робота, отвечай на вопросы и зарабатывай
+                    алмазики!
+                  </p>
+                </div>
+                <button class="btn btn-primary onboarding_slider_next">
+                  Начать приключение
+                </button>
+              </div>
+            </div>
+            <div class="swiper-slide onboarding_slide">
+              <div class="onboarding_slide_head">
+                <h2 class="onboarding_slide_title">
+                  Проверь <br />
+                  свои знания
+                </h2>
+                <p class="onboarding_slide_subtitle">
+                  Отвечай правильно и получай <br />награду
+                </p>
+              </div>
+              <div class="onboarding_slide_center">
+                <div class="question">
+                  <button class="question_tooltip_btn btn btn-orange">
+                    Квиз
+                  </button>
+                  <h4 class="question_title">
+                    Как называется самый большой остров в мире?
+                  </h4>
+                  <div class="d-flex w-100 justify-content-around mt-4">
+                    <button
+                      class="question_answer_btn btn btn-answer"
+                      style="background: #c7f0c6; border-color: #c7f0c6"
+                    >
+                      Гренладния
+                    </button>
+                    <button
+                      class="question_answer_btn btn btn-answer"
+                      style="background: #f0cec6; border-color: #f0cec6"
+                    >
+                      Новая Зеландия
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="onboarding_slide_foot">
+                <div class="onboarding_slide_desc">
+                  <p>
+                    Нажми кнопку "Квиз". Выбери правильный ответ из двух
+                    вариантов
+                  </p>
+                  <p class="mt-2">
+                    Ответил верно? Все собранные алмазики твои!
+                  </p>
+                  <p class="mt-2">
+                    Ошибся? Не расстраивайся, в следующий раз повезёт!
+                  </p>
+                </div>
+                <button class="btn btn-primary onboarding_slider_next">
+                  Круто! Что дальше?
+                </button>
+              </div>
+            </div>
+            <div class="swiper-slide onboarding_slide">
+              <div class="onboarding_slide_head">
+                <h2 class="onboarding_slide_title">
+                  Алмазики — твой <br />ключ к знаниям
+                </h2>
+                <p class="onboarding_slide_subtitle">
+                  Используй их в боте GPTkids
+                </p>
+              </div>
+              <div class="onboarding_slide_foot">
+                <div class="onboarding_slide_desc">
+                  <img
+                    src="../images/hero2.svg"
+                    class="onboarding_slide_img_hero2"
+                  />
+                  <ul>
+                    <li>
+                      <p>Выводи алмазики в бота-репетитора GPTkids</p>
+                    </li>
+                    <li>
+                      <p class="mt-2">
+                        Задавай вопросы ИИ-репетитору по любым предметам
+                      </p>
+                    </li>
+                    <li>
+                      <p class="mt-2">
+                        Получай помощь с домашними заданиями 24/7
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <button class="btn btn-primary onboarding_slider_next">
+                  Ого, как интересно!
+                </button>
+              </div>
+            </div>
+            <div class="swiper-slide onboarding_slide">
+              <div class="onboarding_slide_head">
+                <h2 class="onboarding_slide_title">
+                  Становись лучше с <br />каждым днём
+                </h2>
+                <p class="onboarding_slide_subtitle">
+                  Анализируй свой прогресс и развивайся
+                </p>
+              </div>
+              <div class="onboarding_slide_foot">
+                <div class="onboarding_slide_desc">
+                  <img
+                    src="../images/onboarding/result_img.svg"
+                    class="onboarding_slide_img_result"
+                  />
+
+                  <ul>
+                    <li>
+                      <p>Получай ежедневную статистику по твоим ответам</p>
+                    </li>
+                    <li>
+                      <p class="mt-2">
+                        Читай рекомендации от ИИ по улучшению знаний
+                      </p>
+                    </li>
+                    <li>
+                      <p class="mt-2">
+                        Следи за своим прогрессом и ставь новые рекорды!
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  class="btn btn-primary onboarding_slider_next onboarding_slider_play"
+                >
+                  Я готов играть и учиться!
+                </button>
+                <a class="d-none" id="finishOnboarding" href="../index.html"
+                  >Я готов играть и учиться!</a
+                >
+              </div>
+            </div>
+            <div class="swiper-slide onboarding_slide">
+              <h2 class="onboarding_slide_title">
+                Придай своему квизлику <br />яркий образ!
+              </h2>
+            </div>
           </div>
-          <div class="swiper-slide onboarding_slide">
-            <h2 class="onboarding_slide_title">
-              Придай своему квизлику <br />яркий образ!
-            </h2>
-          </div>
+          <div class="swiper-scrollbar"></div>
         </div>
-        <div class="swiper-scrollbar"></div>
-      </div>
-      <div class="d-flex justify-content-between mt-4 onboarding_footer">
-        <button class="btn btn-secondary btn-footer onboarding_skip_btn">
-          Пропустить
-        </button>
-        <button class="btn btn-primary btn-footer onboarding_slider_next">
-          Далее
-        </button>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

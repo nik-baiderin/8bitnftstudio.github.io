@@ -27,28 +27,45 @@
     <div class="profile">
       <div class="profile_bg"></div>
       <div class="profile_gradient"></div>
-      <div class="container">
-        <div class="profile_main">
-          <div class="profile_avatar"></div>
-          <span class="profile_name">Dmitry</span>
-          <span>Общий баланс</span>
-          <div class="balance profile_balance">
-            <span class="balance_score"></span>&nbsp;
-            <img
-              class="balance_icon"
-              src="../images/onboarding/diamond_icon.svg"
-              alt=""
-            />
+      <div class="profile_main w-100">
+        <div class="container">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="profile_avatar"></div>
+            <span class="profile_name">Dmitry</span>
+            <span
+              style="
+                font-size: 0.95rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                margin-top: 2rem;
+              "
+              >Общий баланс</span
+            >
+            <div class="balance profile_balance">
+              <span class="balance_score"></span>&nbsp;
+              <img
+                class="balance_icon"
+                src="../images/onboarding/diamond_icon.svg"
+                alt=""
+              />
+            </div>
+            <button class="btn btn-withdraw profile_withdraw_btn mt-4">
+              Вывести
+              <img class="btn-withdraw_icon" src="../images/lock_icon.svg" />
+            </button>
           </div>
-          <button class="btn btn-withdraw profile_withdraw_btn">
-            Вывести
-            <img class="btn-withdraw_icon" src="../images/lock_icon.svg" />
-          </button>
-        </div>
-        <div class="profile_play">
-          <button class="btn btn-primary profile_play_btn">Играть!</button>
         </div>
       </div>
+      <div class="profile_play w-100">
+        <div class="container">
+          <a class="btn btn-primary profile_play_btn" href="../game/game.html"
+            >Играть!</a
+          >
+        </div>
+      </div>
+
       <div class="footer">
         <div class="footer_menu">
           <div class="footer_menu_item">

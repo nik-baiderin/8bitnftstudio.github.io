@@ -1,7 +1,9 @@
 .profile {
-    padding: 0 1.2rem;
+       /* padding: 0 1.2rem; */
+    padding-top: 2rem;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -40,6 +42,16 @@
     z-index: -1;
     backdrop-filter: blur(10px);
 
+}
+
+.profile_main {
+    flex: 1 0 auto;
+}
+
+.profile_head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .profile_main {
